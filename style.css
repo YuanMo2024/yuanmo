@@ -83,11 +83,34 @@
   -webkit-box-shadow: 2px 2px 5px #333333;
   box-shadow: 2px 2px 5px #333333;
 }
-#neirong {
+.neirong {
   display: flex;
   flex-direction: column;
   flex: 1;
-  z-index: 1;
+  border-radius: 8px;
+  z-index: 2;
   margin-left: 8px;
   margin-right: 8px;
+  background-color: #e1f5fe;
+  opacity: 0.5;
+  -moz-box-shadow: 2px 2px 5px #333333;
+  -webkit-box-shadow: 2px 2px 5px #333333;
+  box-shadow: 2px 2px 5px #333333;
+  /* border: 1px solid red; */
+}
+#neirong {
+  display: flex;
+  /* flex-direction: column; */
+  flex: 1;
+  z-index: 1;
+  /* border: 1px solid red; */
+}
+.image1 {
+  margin-top: 20vh;
+  margin-left: auto;
+  margin-right: auto;
+}
+.p1 {
+  text-align: center;
+  font-size: 18;
 }
