@@ -15,12 +15,8 @@
         background-size: cover;
         background-image: url(image/background.png);
         background-color: #b3e5fc;
-        height: 100vh;
-        max-width: 1216px;
-        margin-top: 8px;
-        margin-bottom: 16px;
-        margin-left: auto;
-        margin-right: auto;
+        user-select: none;
+        position: relative;
       }
       /* * {
         border: 1px solid red;
@@ -28,141 +24,149 @@
     </style>
   </head>
   <body>
-    <!-- <script>
-      window.console.log("2");
-    </script> -->
-    <!--背景滤镜-->
-    <div style="backdrop-filter: blur(4px); border-radius: 8px">
-      <!-- 头部栏 -->
-      <div class="headbox">
-        <!-- 标题栏 -->
-        <div class="title">
-          <!-- 标题栏左区 -->
-          <div class="tl">
-            <img src="image/keqing.png" width="50px" height="50px" />
-          </div>
-          <!-- 标题栏中区 -->
-          <div class="tm">原魔计算器</div>
-          <!-- 标题栏右区 -->
-          <div
-            id="tr"
-            class="tr"
-            onclick="showmenu()"
-            menu
-            onmousemove="Lighton('tr')"
-            onmouseout="Lightoff('tr')"
-          >
-            <img src="image/1.png" width="50px" height="50px" />
-          </div>
-        </div>
+    <!-- 滤镜层 -->
+    <div id="bg" class="shadow">
+      <!-- 悬浮菜单 -->
+      <div id="Aqing" class="floating">
+        <!-- <img src="image/keqing.png" width="50px" height="50px" /> -->
       </div>
-      <!-- 主体 -->
-      <div class="zhuti">
-        <!-- 菜单栏 -->
-        <div style="width: 300px; margin-left: 8px" class="box menu" id="menu">
-          <!-- 米游社wiki -->
-          <div
-            id="menu0"
-            class="daohang"
-            onclick="F0()"
-            onmousemove="Lighton('menu0')"
-            onmouseout="Lightoff('menu0')"
-          >
-            <img src="image/hutao.png" width="50" height="50" />
-            <div style="margin-left: 10px">米游社wiki</div>
-          </div>
-          <!-- 隐藏菜单 -->
-          <div
-            id="menu1"
-            class="daohang"
-            onclick="F1()"
-            onmousemove="Lighton('menu1')"
-            onmouseout="Lightoff('menu1')"
-          >
-            <img src="image/ganyu.png" width="50" height="50" />
-            <div style="margin-left: 10px">隐藏菜单</div>
-          </div>
-          <!-- 添加优选方案 -->
-          <div
-            id="menu2"
-            class="daohang"
-            onclick="F2()"
-            onmousemove="Lighton('menu2')"
-            onmouseout="Lightoff('menu2')"
-          >
-            <img src="image/naxida.png" width="50" height="50" />
-            <div style="margin-left: 10px">添加优选方案</div>
-          </div>
-          <!-- 添加自选方案 -->
-          <div
-            id="menu3"
-            class="daohang"
-            onclick="F3()"
-            onmousemove="Lighton('menu3')"
-            onmouseout="Lightoff('menu3')"
-          >
-            <img src="image/xiaogong.png" width="50" height="50" />
-            <div style="margin-left: 10px">添加自选方案</div>
-          </div>
-          <!-- 录入角色 -->
-          <div
-            id="menu4"
-            class="daohang"
-            onclick="F4()"
-            onmousemove="Lighton('menu4')"
-            onmouseout="Lightoff('menu4')"
-          >
-            <img src="image/linghua.png" width="50" height="50" />
-            <div style="margin-left: 10px" onclick="">录入角色</div>
-          </div>
-          <!-- 录入武器 -->
-          <div
-            id="menu5"
-            class="daohang"
-            onclick="F5()"
-            onmousemove="Lighton('menu5')"
-            onmouseout="Lightoff('menu5')"
-          >
-            <img src="image/ying.png" width="50" height="50" />
-            <div style="margin-left: 10px">录入武器</div>
-          </div>
-          <!-- 录入圣遗物 -->
-          <div
-            id="menu6"
-            class="daohang"
-            onclick="F6()"
-            onmousemove="Lighton('menu6')"
-            onmouseout="Lightoff('menu6')"
-          >
-            <img src="image/wanye.png" width="50" height="50" />
-            <div style="margin-left: 10px">录入圣遗物</div>
-          </div>
-          <!-- 页面设置 -->
-          <div
-            id="menu7"
-            class="daohang"
-            onclick="F7()"
-            onmousemove="Lighton('menu7')"
-            onmouseout="Lightoff('menu7')"
-          >
-            <img src="image/paimeng.png" width="50" height="50" />
-            <div style="margin-left: 10px">页面设置</div>
+
+      <!-- 背景层 -->
+      <div id="ground">
+        <!-- 头部栏 -->
+        <div id="headbox" class="shadow">
+          <!-- 标题栏 -->
+          <div id="title">
+            <!-- 标题栏左 -->
+            <div id="tl">
+              <img src="image/keqing.png" width="50px" height="50px" />
+            </div>
+            <!-- 标题栏中 -->
+            <div id="tm">原魔计算器</div>
+            <!-- 标题栏右 -->
+            <div
+              id="tr"
+              onclick="showmenu()"
+              onmousemove="Lighton('tr')"
+              onmouseout="Lightoff('tr')"
+            >
+              <img src="image/1.png" width="50px" height="50px" />
+            </div>
           </div>
         </div>
-        <!-- 内容区 -->
-        <div id="neirong" onclick="hidemenu()">
-          <!-- 初始界面 -->
-          <div id="star" class="neirong" onclick="showmenu()">
-            <img
-              src="image/paimeng1.png"
-              width="128"
-              height="128"
-              class="image1"
-            />
-            <p class="p1">什么也没有呢，点我打开菜单栏吧</p>
+        <!-- 下区 -->
+        <div id="xiaqu">
+          <!-- 菜单栏 -->
+          <div id="menu" class="shadow">
+            <!-- 米游社wiki -->
+            <div
+              id="menu0"
+              class="daohang"
+              onclick="F0()"
+              onmousemove="Lighton('menu0')"
+              onmouseout="Lightoff('menu0')"
+            >
+              <img src="image/hutao.png" width="50" height="50" />
+              <div style="margin-left: 10px">米游社wiki</div>
+            </div>
+            <!-- 隐藏菜单 -->
+            <div
+              id="menu1"
+              class="daohang"
+              onclick="F1()"
+              onmousemove="Lighton('menu1')"
+              onmouseout="Lightoff('menu1')"
+            >
+              <img src="image/ganyu.png" width="50" height="50" />
+              <div style="margin-left: 10px">隐藏菜单</div>
+            </div>
+            <!-- 添加优选方案 -->
+            <div
+              id="menu2"
+              class="daohang"
+              onclick="F2()"
+              onmousemove="Lighton('menu2')"
+              onmouseout="Lightoff('menu2')"
+            >
+              <img src="image/naxida.png" width="50" height="50" />
+              <div style="margin-left: 10px">添加优选方案</div>
+            </div>
+            <!-- 添加自选方案 -->
+            <div
+              id="menu3"
+              class="daohang"
+              onclick="F3()"
+              onmousemove="Lighton('menu3')"
+              onmouseout="Lightoff('menu3')"
+            >
+              <img src="image/xiaogong.png" width="50" height="50" />
+              <div style="margin-left: 10px">添加自选方案</div>
+            </div>
+            <!-- 录入角色 -->
+            <div
+              id="menu4"
+              class="daohang"
+              onclick="F4()"
+              onmousemove="Lighton('menu4')"
+              onmouseout="Lightoff('menu4')"
+            >
+              <img src="image/linghua.png" width="50" height="50" />
+              <div style="margin-left: 10px" onclick="">录入角色</div>
+            </div>
+            <!-- 录入武器 -->
+            <div
+              id="menu5"
+              class="daohang"
+              onclick="F5()"
+              onmousemove="Lighton('menu5')"
+              onmouseout="Lightoff('menu5')"
+            >
+              <img src="image/ying.png" width="50" height="50" />
+              <div style="margin-left: 10px">录入武器</div>
+            </div>
+            <!-- 录入圣遗物 -->
+            <div
+              id="menu6"
+              class="daohang"
+              onclick="F6()"
+              onmousemove="Lighton('menu6')"
+              onmouseout="Lightoff('menu6')"
+            >
+              <img src="image/wanye.png" width="50" height="50" />
+              <div style="margin-left: 10px">录入圣遗物</div>
+            </div>
+            <!-- 页面设置 -->
+            <div
+              id="menu7"
+              class="daohang"
+              onclick="F7()"
+              onmousemove="Lighton('menu7')"
+              onmouseout="Lightoff('menu7')"
+            >
+              <img src="image/paimeng.png" width="50" height="50" />
+              <div style="margin-left: 10px">页面设置</div>
+            </div>
+          </div>
+          <!-- 主体区 -->
+          <div id="zhuti">
+            <!-- 初始界面 -->
+            <div id="star" class="shadow" onclick="menuctl()">
+              <img
+                src="image/paimeng1.png"
+                width="128"
+                height="128"
+                style="margin-top: 20vh; margin-left: auto; margin-right: auto"
+              />
+              <p style="text-align: center; font-size: 18">
+                什么也没有呢，点我打开菜单栏吧
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <script>
+      init();
+    </script>
   </body>
 </html>
