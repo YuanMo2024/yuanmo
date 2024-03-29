@@ -6,7 +6,6 @@
     <title>原魔计算器</title>
     <link rel="icon" type="image/x-icon" href="image/keqing.ico" />
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <script type="text/javascript" src="script.js"></script>
     <style>
       body {
         background-position: center center;
@@ -18,17 +17,24 @@
         user-select: none;
         position: relative;
       }
+      img {
+        -webkit-user-drag: none;
+      }
       /* * {
         border: 1px solid red;
       } */
     </style>
   </head>
   <body>
+    <!-- <div id="Aqing" class="floating">
+      <img src="image/keqing.png" width="50px" height="50px" />
+    </div> -->
     <!-- 滤镜层 -->
     <div id="bg" class="shadow">
       <!-- 悬浮菜单 -->
-      <div id="Aqing" class="floating">
-        <!-- <img src="image/keqing.png" width="50px" height="50px" /> -->
+      <!-- <canvas id="myCanvas"></canvas> -->
+      <div id="Aqing">
+        <img src="image/keqing.png" width="50px" height="50px" />
       </div>
 
       <!-- 背景层 -->
@@ -155,7 +161,7 @@
                 src="image/paimeng1.png"
                 width="128"
                 height="128"
-                style="margin-top: 20vh; margin-left: auto; margin-right: auto"
+                id="paimeng1"
               />
               <p style="text-align: center; font-size: 18">
                 什么也没有呢，点我打开菜单栏吧
@@ -165,8 +171,6 @@
         </div>
       </div>
     </div>
-    <script>
-      init();
-    </script>
+    <script type="text/javascript" src="script.js"></script>
   </body>
 </html>

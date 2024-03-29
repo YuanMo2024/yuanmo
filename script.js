@@ -1,11 +1,9 @@
 //初始化
 let meniIsOn = true;
-function init() {
-  window.console.log(window.innerWidth);
-  if (window.innerWidth <= 600) {
-    meniIsOn = false;
-    document.getElementById("menu").style.display = "none";
-  }
+window.console.log(window.innerWidth);
+if (window.innerWidth <= 600) {
+  meniIsOn = false;
+  document.getElementById("menu").style.display = "none";
 }
 
 //按钮高亮
@@ -92,4 +90,65 @@ function menuctl() {
   }
 }
 
-// 悬浮球
+// 阿晴悬浮球
+let downtime = 0;
+let AqingDown = false;
+let setPosTime = 0;
+let mousepos = {
+  x: 0,
+  y: 0,
+};
+let AqingOffset = {
+  x: 0,
+  y: 0,
+};
+
+const BG = document.getElementById("bg");
+const AQ = document.getElementById("Aqing");
+
+BG.onmousemove = function (event) {
+  // event = event || window.event;
+  if (AqingDown && Date.now() >= downtime + 200) {
+    mousepos.x = event.clientX;
+    mousepos.y = event.clientY;
+    // window.console.log("mousepos = " + mousepos.x + "," + mousepos.y);
+    AQ.style.left = mousepos.x - AqingOffset.x + "px";
+    AQ.style.top = mousepos.y - AqingOffset.y + "px";
+  }
+  AQ.onmousemove = function () {
+    if (AqingDown) {
+      AQ.style.scale = 1;
+    } else {
+      AQ.style.scale = 1.1;
+    }
+  };
+  AQ.onmouseout = function () {
+    AQ.style.scale = 1;
+  };
+  AQ.onmousedown = function () {
+    AqingDown = true;
+    downtime = Date.now();
+    AqingOffset.x = event.clientX - AQ.offsetLeft;
+    AqingOffset.y = event.clientY - AQ.offsetTop;
+    AQ.style.scale = 1;
+  };
+  AQ.onmouseup = function () {
+    AQ.style.scale = 1.1;
+    if (AqingDown && Date.now() < downtime + 200) {
+      window.console.log(1);
+      AqingClick();
+    }
+    AqingDown = false;
+  };
+};
+function AqingClick() {
+  document.getElementById("star").style.display = "none";
+  countYou++;
+  divYouxuan =
+    '<div id="divAqing' +
+    countYou +
+    '" class="neirong shedow">阿晴头像菜单测试' +
+    countYou +
+    "</div>";
+  document.getElementById("zhuti").insertAdjacentHTML("beforeend", divYouxuan);
+}
