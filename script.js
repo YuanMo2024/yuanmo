@@ -108,7 +108,7 @@ const AQ = document.getElementById("Aqing");
 
 BG.onmousemove = function (event) {
   // event = event || window.event;
-  if (AqingDown && Date.now() >= downtime + 200) {
+  if (AqingDown && Date.now() >= downtime + 500) {
     mousepos.x = event.clientX;
     mousepos.y = event.clientY;
     // window.console.log("mousepos = " + mousepos.x + "," + mousepos.y);
@@ -134,7 +134,7 @@ BG.onmousemove = function (event) {
   };
   AQ.onmouseup = function () {
     AQ.style.scale = 1.1;
-    if (AqingDown && Date.now() < downtime + 200) {
+    if (AqingDown && Date.now() < downtime + 500) {
       window.console.log(1);
       AqingClick();
     }
