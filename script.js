@@ -1,9 +1,15 @@
 //初始化
 let meniIsOn = true;
 window.console.log(window.innerWidth);
+const menu = document.getElementById("menu");
+const BG = document.getElementById("bg");
+const AQ = document.getElementById("Aqing");
 if (window.innerWidth <= 600) {
   meniIsOn = false;
-  document.getElementById("menu").style.display = "none";
+  menu.style.display = "none";
+}
+if (menu.style.display === "none") {
+  AQ.style.display = "block";
 }
 
 // 阿晴悬浮球
@@ -22,16 +28,6 @@ let AqingOffset = {
   x: 0,
   y: 0,
 };
-
-const BG = document.getElementById("bg");
-const AQ = document.getElementById("Aqing");
-
-BG.addEventListener("touchstart", function () {
-  isMobile = true;
-});
-BG.addEventListener("touchend", function () {
-  isMobile = false;
-});
 
 BG.onmousemove = function (event) {
   event = event || window.event;
@@ -74,11 +70,7 @@ BG.onmousemove = function (event) {
     AQ.style.scale = 0.9;
   };
   AQ.onmouseup = function () {
-    if (isMobile) {
-      AQ.style.scale = 1;
-    } else {
-      AQ.style.scale = 1.1;
-    }
+    AQ.style.scale = 1;
     if (AqingDrag) {
       AqingDrag = false;
     } else if (AqingDown) {
@@ -112,7 +104,8 @@ function Lightoff(Id) {
 // tr右区按钮
 function showmenu() {
   meniIsOn = true;
-  document.getElementById("menu").style.display = "block";
+  menu.style.display = "block";
+  AQ.style.display = "none";
   document.getElementById("tr").style.backgroundColor = "#b3e5fc";
 }
 
@@ -127,7 +120,8 @@ function F0() {
 //隐藏菜单按钮
 function F1() {
   meniIsOn = false;
-  document.getElementById("menu").style.display = "none";
+  menu.style.display = "none";
+  AQ.style.display = "block";
   document.getElementById("menu1").style.backgroundColor = "#b3e5fc";
 }
 
@@ -184,13 +178,20 @@ function F6() {
   document.getElementById("menu6").style.backgroundColor = "#b3e5fc";
 }
 
+// 页面设置
+function F7() {
+  document.getElementById("menu7").style.backgroundColor = "#b3e5fc";
+}
+
 //初始界面控制菜单栏
 function menuctl() {
   if (meniIsOn === false) {
     meniIsOn = true;
-    document.getElementById("menu").style.display = "block";
+    menu.style.display = "block";
+    AQ.style.display = "none";
   } else if (window.innerWidth <= 600) {
     meniIsOn = false;
-    document.getElementById("menu").style.display = "none";
+    menu.style.display = "none";
+    AQ.style.display = "block";
   }
 }
