@@ -9,25 +9,22 @@
 /* 背景 */
 #bg {
   /* position: absolute; */
+  /* position: relative; */
+  width: 100%;
   max-width: 1600px;
-  min-height: 100vh;
+  height: 100%;
   border-radius: 8px;
+  margin-top: 0;
   margin-left: auto;
   margin-right: auto;
+  /* transform: translate(-50%, 0); */
   backdrop-filter: blur(3px);
   background-color: rgba(79, 195, 247, 0.18);
-  /* border: 1px solid red; */
+  border: 1px solid rgba(0, 0, 0, 0);
 }
-/* #myCanvas {
-  position: absolute;
-  z-index: 0;
-  flex: 1;
-  border: 1px solid red;
-} */
 #ground {
   max-width: 1200px;
-  min-height: 100vh;
-  margin-top: 0;
+  height: 100%;
   margin-left: auto;
   margin-right: auto;
   /* border: 1px solid red; */
@@ -47,13 +44,26 @@
   opacity: 0.7;
   /* border: 1px solid red; */
 }
+#Aqing:hover {
+  scale: 1.1;
+}
+#Aqing:active {
+  scale: 0.9;
+}
 
 /* 头部栏 */
 #headbox {
+  z-index: 100;
+  width: 100%;
+  max-width: 1200px;
   height: 60px;
+  top: 0px;
+  left: 50%;
+  transform: translate(-50%, 0);
   background-color: #b3e5fc;
   opacity: 0.7;
   border-radius: 8px;
+  position: fixed;
 }
 #title {
   max-width: 600px;
@@ -66,47 +76,63 @@
   height: 50px;
   flex: 1;
   margin-top: 5px;
-  margin-left: 16px;
+}
+#tlImg {
+  width: 50px;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
 }
 #tm {
   height: 40px;
   flex: 3;
   font-size: 28px;
+  text-align: center;
   margin-top: 10px;
 }
 #tr {
   height: 50px;
   flex: 1;
   margin-top: 5px;
-  margin-right: 5px;
   /* border: 1px solid red; */
 }
 #trButton {
   width: 50px;
   height: 50px;
-  margin-left: 0;
+  margin-left: auto;
+  margin-right: auto;
   cursor: pointer;
   /* border: 1px solid red; */
+}
+#trButton:hover {
+  background-color: #81d4fa;
 }
 
 /* 下区 */
 #xiaqu {
   display: flex;
+  margin-top: 68px;
   min-height: 800px;
-  margin-top: 8px;
 }
 
 /* 菜单栏 */
 #menu {
+  z-index: 100;
   width: 280px;
   height: 85vh;
   min-height: 600px;
-  margin-top: 8px;
+  top: 68px;
   flex-direction: column;
   flex-shrink: 0;
   border-radius: 8px;
   background-color: #b3e5fc;
   opacity: 0.65;
+  position: fixed;
+}
+#menuHide {
+  width: 280px;
+  min-height: 600px;
+  margin-right: 8px;
 }
 .daohang {
   display: flex;
@@ -120,9 +146,13 @@
   font-size: 18px;
   cursor: pointer;
 }
+.daohang:hover {
+  background-color: #81d4fa;
+}
 
 /* 主体区 */
 #zhuti {
+  min-height: 85vh;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -132,8 +162,6 @@
   display: flex;
   min-height: 600px;
   height: 85vh;
-  margin-top: 8px;
-  margin-left: 8px;
   flex-direction: column;
   flex: 1;
   border-radius: 8px;
@@ -144,17 +172,12 @@
   margin-top: 20vh;
   margin-left: auto;
   margin-right: auto;
-  cursor: pointer;
 }
 /* div模板 */
 .neirong {
   flex: 1;
   min-width: 300px;
   min-height: 600px;
-  margin-left: 8px;
-  margin-top: 8px;
   border-radius: 8px;
   background-color: rgba(179, 229, 252, 0.65);
 }
-
-/* 悬浮样式 */
